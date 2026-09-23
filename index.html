@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread The Word Ministries Int. Inc.</title>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-blue: #0A3D62; /* Deep spiritual blue */
+            --secondary-gold: #D4AF37; /* Gold from the Pastor's poster */
+            --accent-green: #2E8B57; /* Green from the Logo */
+            --text-dark: #333333;
+            --text-light: #f4f4f4;
+            --bg-light: #f9f9f9;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            height: 60px;
+            width: auto;
+            border-radius: 50%; /* Makes logo perfectly round */
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(10, 61, 98, 0.8), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1499346030926-9a72daac6ea7?q=80&w=2070&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 80px; /* Offset for fixed header */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: var(--secondary-gold);
+            color: #111;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #b8962d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* SECTION STYLES */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ABOUT & PASTOR SECTION */
+        .about-section {
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .pastor-img-container {
+            position: relative;
+        }
+
+        .pastor-img-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .pastor-info h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .pastor-info h4 {
+            color: var(--secondary-gold);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pastor-info p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* SERVICES / MINISTRIES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-gold);
+            margin-bottom: 20px;
+        }
+
+        /* ACTION FORMS SECTION */
+        .action-section {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .action-section h2, .action-section p {
+            color: white;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            color: var(--text-dark);
+        }
+
+        .form-card h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-card .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* LOCATION & CONTACT */
+        .location-section {
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .location-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            padding: 50px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo img {
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .footer-logo h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #222;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-gold);
+            color: #111;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .logo-area img {
+                height: 45px;
+            }
+
+            .hero {
+                margin-top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <!-- REPLACE 'logo.jpg' WITH YOUR ACTUAL LOGO FILE NAME -->
+                <img src="logo.jpg" alt="Spread The Word Ministries Logo">
+                <div class="logo-text">SPREAD THE WORD<br>MINISTRIES INT. INC.</div>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ministries">Ministries</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Spread The Word Ministries</h1>
+            <p>Raising a generation of believers rooted in the Word, empowered by the Spirit, and committed to His Glory.</p>
+            <a href="#connect" class="btn">Plan Your Visit</a>
+        </div>
+    </section>
+
+    <!-- ABOUT & PASTOR SECTION -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Shepherd</h2>
+            <p class="section-subtitle">A Bond Servant of Yeshua</p>
+            
+            <div class="about-grid">
+                <div class="pastor-img-container">
+                    <!-- REPLACE 'pastor.jpg' WITH THE PASTOR'S ACTUAL IMAGE FILE NAME -->
+                    <img src="pastor.jpg" alt="Pst KC Joel Nwachinemere">
+                </div>
+                <div class="pastor-info">
+                    <h3>Pst KC Joel Nwachinemere</h3>
+                    <h4>Preacher | Teacher | Intercessor | Spiritual Father</h4>
+                    <p>"But we have this treasure in earthen vessels, that the excellency of the power may be of God, and not of us." - <strong>2 Corinthians 4:7</strong></p>
+                    <p>Under the mandate of <em>For His Glory</em>, Pastor Joel leads Spread The Word Ministries with a passionate commitment to teaching the undiluted Word of God, raising intercessors, and building a community of believers who manifest the power of the Holy Spirit in their daily lives.</p>
+                    <p>Whether you are seeking spiritual guidance, a church home, or a place to grow in your faith, you are welcome here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINISTRIES / WHAT WE DO -->
+    <section id="ministries">
+        <div class="container">
+            <h2 class="section-title">Our Mandate</h2>
+            <p class="section-subtitle">Preach | Teach | Intercede | Build | Serve</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-bible"></i>
+                    <h3>Word & Teaching</h3>
+                    <p>Deep, expository teaching of the Scriptures to equip the saints for every good work.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-praying-hands"></i>
+                    <h3>Intercession</h3>
+                    <p>A dedicated altar of prayer, standing in the gap for the church, the nation, and the world.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Outreach</h3>
+                    <p>Taking the Gospel beyond our immediate community, spreading the Word to the ends of the earth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONNECT / ACTIONS SECTION -->
+    <section id="connect" class="action-section">
+        <div class="container">
+            <h2 class="section-title">Get Connected</h2>
+            <p class="section-subtitle">We would love to hear from you. Submit a request below.</p>
+
+            <div class="forms-grid">
+                
+                <!-- PRAYER REQUEST FORM -->
+                <div class="form-card">
+                    <h3>Request a Prayer</h3>
+                    <form onsubmit="event.preventDefault(); alert('Your prayer request has been sent to our intercessory team. God bless you!');">
+                        <div class="form-group">
+                            <label for="prayer-name">Full Name</label>
+                            <input type="text" id="prayer-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prayer-email">Email Address</label>
+                            <input type="email" id="prayer-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prayer-request">Prayer Request</label>
+                            <textarea id="prayer-request" placeholder="How can we pray for you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Prayer</button>
+                    </form>
+                </div>
+
+                <!-- MEETING & VISIT FORM -->
+                <div class="form-card">
+                    <h3>Book a Meeting / Visit</h3>
+                    <form onsubmit="event.preventDefault(); alert('Your request has been received. Our team will contact you shortly to confirm.');">
+                        <div class="form-group">
+                            <label for="meet-name">Full Name</label>
+                            <input type="text" id="meet-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="meet-phone">Phone Number</label>
+                            <input type="tel" id="meet-phone" placeholder="Your Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="meet-purpose">Purpose of Request</label>
+                            <select id="meet-purpose" required>
+                                <option value="">Select an option</option>
+                                <option value="visit">I want to visit the church</option>
+                                <option value="pastor">I want to meet with the Pastor</option>
+                                <option value="counseling">Counseling / Guidance</option>
+                                <option value="partnership">Partnership / Ministry Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="meet-message">Additional Details (Optional)</label>
+                            <textarea id="meet-message" placeholder="Any additional information..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Request</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+    <section id="location" class="location-section">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <p class="section-subtitle">We can't wait to welcome you into the house of God.</p>
+            
+            <div class="location-info">
+                <div class="info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Our Address</h3>
+                    <p>Ayen Community<br>Benin City, Edo State<br>Nigeria</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-clock"></i>
+                    <h3>Service Times</h3>
+                    <p>Sunday Worship: 8:00 AM</p>
+                    <p>Midweek Service: Wednesday 5:30 PM</p>
+                    <p>Prayer Meeting: Friday 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- REPLACE 'logo.jpg' WITH YOUR ACTUAL LOGO FILE NAME -->
+                <img src="logo.jpg" alt="Spread The Word Ministries Logo">
+                <h2>Spread The Word Ministries Int. Inc.</h2>
+                <p>For His Glory</p>
+            </div>
+
+            <div class="social-icons">
+                <!-- REPLACE '#' WITH YOUR ACTUAL SOCIAL MEDIA LINKS -->
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Spread The Word Ministries Int. Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navMenu = document.getElementById('navMenu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
